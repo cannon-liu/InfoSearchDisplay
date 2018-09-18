@@ -1,0 +1,24 @@
+#文档参考
+http://scrapyd.readthedocs.io/en/stable/api.html
+
+
+#上传工程
+scrapyd-deploy cannon -p InformationSpider --version r01
+
+
+#删除工程
+curl http://localhost:6800/delproject.json -d project=InformationSpider
+
+
+#启动spider
+curl http://localhost:6800/schedule.json -d project=InformationSpider -d spider=ft_new
+
+#取消运行
+curl http://localhost:6800/cancel.json -d project=InformationSpider -d job=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+#查看工程状态
+curl http://localhost:6800/daemonstatus.json
+
+#给工程创建一个版本，
+curl http://localhost:6800/addversion.json -F project=InformationSpider -F version=r23 -F egg=@myproject.egg
